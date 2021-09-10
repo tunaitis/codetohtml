@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code to HTML</title>
+    <link rel="stylesheet" href="styles/main.scss">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+
+        <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                <svg class="me-2" width="28" fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="3.917 0 92.166 100"
+                    enable-background="new 3.917 0 92.166 100" xml:space="preserve">
+                    <path d="M88.939,0H20.853h-9.562C7.374,0,3.917,3.226,3.917,7.028c0,0,0,0,0,0.115c0,0.231,0.346,0.576,0.346,0.807l7.834,70.276
+	c0.115,1.037,0.46,1.958,1.037,2.766c0.691,1.382,1.843,2.419,3.226,3.109l30.991,15.208c1.037,0.459,2.073,0.691,3.11,0.691
+	c1.036,0,2.074-0.231,3.11-0.691l30.876-15.208c2.534-1.267,4.032-3.916,3.915-6.681l7.605-69.701c0-0.23,0.115-0.576,0.115-0.806
+	c0,0,0,0,0-0.115C96.083,3.226,92.857,0,88.939,0z M31.336,47.926l11.751,11.751c2.304,2.305,2.304,6.104,0,8.409
+	c-2.304,2.304-6.105,2.304-8.41,0L17.511,50.923c0,0-0.23,0-0.23-0.116c-0.922-0.922-1.843-1.959-1.843-3.111l0,0
+	c0-0.345,0.115-0.691,0.115-1.152c0-1.498,0.691-3.111,1.843-4.263c0,0,0.115,0,0.115-0.115l5.53-5.53l11.751-11.75
+	c2.304-2.304,6.106-2.304,8.411,0c2.304,2.304,2.304,6.105,0,8.41L30.069,46.659L31.336,47.926z M84.562,50.807
+	C84.447,50.807,84.447,50.923,84.562,50.807l-5.53,5.529L67.281,68.087c-2.305,2.304-6.105,2.304-8.41,0
+	c-2.304-2.305-2.304-6.104,0-8.409L71.89,46.659l-1.383-1.383L58.755,33.525c-2.304-2.304-2.304-6.106,0-8.41
+	c2.305-2.304,6.107-2.304,8.411,0l17.165,17.166c0,0,0.116,0,0.116,0.115c0.923,0.922,1.382,1.959,1.612,3.111
+	c0,0.23,0,0.461,0.116,0.576c0,0.115,0,0.345,0,0.461C86.29,48.157,85.714,49.655,84.562,50.807z"></path>
+                </svg>
+                <span class="fs-4 fw-bold">Code to HTML</span>
+            </a>
+        </header>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label">Language:</label>
+                    <div id="languages" class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <!--
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <label class="form-label">Code:</label>
+                <textarea id="code" class="form-control" rows="10" style="resize: none;">
+                </textarea>
+            </div>
+            <div class="col-6">
+                <label class="form-label">Preview:</label>
+
+                <pre id="preview" class="language-x">
+
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/index.ts"></script>
+</body>
+
+</html>
