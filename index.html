@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code to HTML</title>
+    <link id="language-style" rel="stylesheet" href="lib/styles/default.css" type="text/css">
+    <!---
     <link rel="stylesheet" href="styles/main.scss">
+    --->
 </head>
 
 <body>
 
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
 
         <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
             <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
@@ -36,39 +39,70 @@
 
         <div class="row">
             <div class="col-6">
+
                 <div class="mb-3">
                     <label class="form-label">Language:</label>
-                    <div id="languages" class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <!--
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            -->
-                        </ul>
+                    <select class="form-select" id="languages" disabled>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="autoDetectLanguage" checked>
+                        <label class="form-check-label" for="autoDetectLanguage">
+                            Auto detect the Language
+                        </label>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <label class="form-label">Code:</label>
+
+                <label class="form-label mt-4">Code:</label>
                 <textarea id="code" class="form-control" rows="10" style="resize: none;">
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My first paragraph.</p>
+
+</body>
+</html>
                 </textarea>
             </div>
             <div class="col-6">
-                <label class="form-label">Preview:</label>
+                <div class="mb-3">
+                    <label class="form-label">Theme:</label>
+                    <select class="form-select" id="themes">
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="autoIndentCode">
+                        <label class="form-check-label" for="autoIndentCode">
+                            Auto intend the code
+                        </label>
+                    </div>
+                </div>
+                <label class="form-label mt-4">Preview:</label>
 
-                <pre id="preview" class="language-x">
+                <pre id="preview" class="hljs p-3">
 
                 </pre>
             </div>
         </div>
+
+        <hr class="mt-5" />
+
+        <div class="row mt-5">
+
+            <div class="col-6">
+
+                <label class="form-label">Generated code:</label>
+                <textarea id="generatedCode" rows="10" class="form-control"></textarea>
+            </div>
+        </div>
     </div>
 
-    <script src="src/index.ts"></script>
+    <script src="dist/bundle.js"></script>
 </body>
 
 </html>
