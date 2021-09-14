@@ -20,7 +20,6 @@ const generatedCodeInput = document.querySelector('#generatedCode') as HTMLTextA
 const preview = document.querySelector('#preview') as HTMLElement;
 const languageInput = document.querySelector('#languages') as HTMLInputElement;
 const themeInput = document.querySelector('#themes') as HTMLInputElement;
-const formatCodeInput = document.querySelector('#formatCode') as HTMLInputElement;
 const languageStyleLink = document.querySelector('#language-style') as HTMLLinkElement;
 
 const languages = ['html', 'javascript', 'xml'];
@@ -34,7 +33,7 @@ languages.forEach((langName) => {
 
 const updatePreview = () => {
 
-    hljs.configure({ cssSelector: 'code' });
+    //hljs.configure({ cssSelector: 'code' });
 
     /*
     const code = formatCodeInput.checked
@@ -51,10 +50,6 @@ const updatePreview = () => {
 };
 
 codeInput.addEventListener('input', (event) => {
-    updatePreview();
-});
-
-formatCodeInput.addEventListener('change', (event) => {
     updatePreview();
 });
 

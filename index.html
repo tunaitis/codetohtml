@@ -16,9 +16,9 @@
 
     <div class="container mt-5 mb-5">
 
-        <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
-            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-                <svg class="me-2" width="28" fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        <header class="d-flex align-items-center pb-3 mb-5">
+            <a href="/" class="d-flex align-items-center link-gray-700 text-decoration-none">
+                <svg class="me-2" width="28" fill="#495057" version="1.1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="3.917 0 92.166 100"
                     enable-background="new 3.917 0 92.166 100" xml:space="preserve">
                     <path d="M88.939,0H20.853h-9.562C7.374,0,3.917,3.226,3.917,7.028c0,0,0,0,0,0.115c0,0.231,0.346,0.576,0.346,0.807l7.834,70.276
@@ -33,7 +33,7 @@
 	c2.305-2.304,6.107-2.304,8.411,0l17.165,17.166c0,0,0.116,0,0.116,0.115c0.923,0.922,1.382,1.959,1.612,3.111
 	c0,0.23,0,0.461,0.116,0.576c0,0.115,0,0.345,0,0.461C86.29,48.157,85.714,49.655,84.562,50.807z"></path>
                 </svg>
-                <span class="fs-4 fw-bold">Code to HTML</span>
+                <span class="fs-3 fw-bold">Code to HTML</span>
             </a>
         </header>
 
@@ -76,6 +76,7 @@
                     <select class="form-select" id="themes">
                     </select>
                 </div>
+                <!--
                 <div class="mb-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="formatCode">
@@ -84,6 +85,7 @@
                         </label>
                     </div>
                 </div>
+                -->
                 <label class="form-label mt-4">Preview:</label>
 
                 <pre id="preview" class="hljs p-3">
@@ -98,11 +100,44 @@
 
             <div class="col-6">
 
-                <label class="form-label">Generated code:</label>
+                <label class="form-label">Generated HTML code:</label>
                 <textarea id="generatedCode" rows="10" class="form-control"></textarea>
             </div>
         </div>
     </div>
+
+    <footer class="bg-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <a href="" class="d-inline-flex align-items-center link-gray-700 text-decoration-none">
+                        <svg class="me-2 fill-gray-700" width="18" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="3.917 0 92.166 100"
+                            enable-background="new 3.917 0 92.166 100" xml:space="preserve">
+                            <path d="M88.939,0H20.853h-9.562C7.374,0,3.917,3.226,3.917,7.028c0,0,0,0,0,0.115c0,0.231,0.346,0.576,0.346,0.807l7.834,70.276
+	c0.115,1.037,0.46,1.958,1.037,2.766c0.691,1.382,1.843,2.419,3.226,3.109l30.991,15.208c1.037,0.459,2.073,0.691,3.11,0.691
+	c1.036,0,2.074-0.231,3.11-0.691l30.876-15.208c2.534-1.267,4.032-3.916,3.915-6.681l7.605-69.701c0-0.23,0.115-0.576,0.115-0.806
+	c0,0,0,0,0-0.115C96.083,3.226,92.857,0,88.939,0z M31.336,47.926l11.751,11.751c2.304,2.305,2.304,6.104,0,8.409
+	c-2.304,2.304-6.105,2.304-8.41,0L17.511,50.923c0,0-0.23,0-0.23-0.116c-0.922-0.922-1.843-1.959-1.843-3.111l0,0
+	c0-0.345,0.115-0.691,0.115-1.152c0-1.498,0.691-3.111,1.843-4.263c0,0,0.115,0,0.115-0.115l5.53-5.53l11.751-11.75
+	c2.304-2.304,6.106-2.304,8.411,0c2.304,2.304,2.304,6.105,0,8.41L30.069,46.659L31.336,47.926z M84.562,50.807
+	C84.447,50.807,84.447,50.923,84.562,50.807l-5.53,5.529L67.281,68.087c-2.305,2.304-6.105,2.304-8.41,0
+	c-2.304-2.305-2.304-6.104,0-8.409L71.89,46.659l-1.383-1.383L58.755,33.525c-2.304-2.304-2.304-6.106,0-8.41
+	c2.305-2.304,6.107-2.304,8.411,0l17.165,17.166c0,0,0.116,0,0.116,0.115c0.923,0.922,1.382,1.959,1.612,3.111
+	c0,0.23,0,0.461,0.116,0.576c0,0.115,0,0.345,0,0.461C86.29,48.157,85.714,49.655,84.562,50.807z"></path>
+                        </svg>
+                        <span class="fs-4 fw-bold">Code to HTML</span>
+                    </a>
+                    <div class="text-muted mt-2">
+                        Code to HTML is an online tool for preparing programming code to be displayed on HTML pages.
+                    </div>
+                </div>
+            </div>
+            <div class="text-muted small mt-5">
+                Copyright © 2021 All rights reserved.
+            </div>
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="dist/bundle.js"></script>
