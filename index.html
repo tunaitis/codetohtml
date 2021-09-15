@@ -37,15 +37,16 @@
             </a>
         </header>
 
-        <div class="row">
-            <div class="col-6">
+        <main>
+            <div class="row">
+                <div class="col-6">
 
-                <div class="mb-3">
-                    <label class="form-label">Language:</label>
-                    <select class="form-select" id="languages">
-                    </select>
-                </div>
-                <!---
+                    <div class="mb-3">
+                        <label class="form-label">Language:</label>
+                        <select class="form-select language-input">
+                        </select>
+                    </div>
+                    <!---
                 <div class="mb-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="autoDetectLanguage" checked>
@@ -56,8 +57,8 @@
                 </div>
             -->
 
-                <label class="form-label mt-4">Code:</label>
-                <textarea id="code" class="form-control" rows="10" style="resize: none;">
+                    <label class="form-label mt-4">Code:</label>
+                    <textarea class="form-control code-input" rows="14" style="resize: none;">
 <!DOCTYPE html>
 <html>
 <body>
@@ -69,41 +70,44 @@
 </body>
 </html>
                 </textarea>
-            </div>
-            <div class="col-6">
-                <div class="mb-3">
-                    <label class="form-label">Theme:</label>
-                    <select class="form-select" id="themes">
-                    </select>
                 </div>
-                <!--
-                <div class="mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="formatCode">
-                        <label class="form-check-label" for="formatCode">
-                            Format code
-                        </label>
+                <div class="col-6 d-flex flex-column">
+                    <div class="mb-3">
+                        <label class="form-label">Theme:</label>
+                        <select class="form-select" id="themes">
+                        </select>
                     </div>
-                </div>
-                -->
-                <label class="form-label mt-4">Preview:</label>
+                    <label class="form-label mt-4">Preview:</label>
 
-                <pre id="preview" class="hljs p-3">
+                    <pre class="code-preview hljs p-3 mb-0 flex-grow-1">
 
                 </pre>
+                </div>
             </div>
-        </div>
-
-        <hr class="mt-5" />
-
-        <div class="row mt-5">
-
-            <div class="col-6">
-
-                <label class="form-label">Generated HTML code:</label>
-                <textarea id="generatedCode" rows="10" class="form-control"></textarea>
+            <div class="d-flex align-items-center justify-content-center mt-4">
+                <button class="btn btn-primary btn-lg" id="generate">Generate HTML</button>
             </div>
-        </div>
+            <div class="modal" id="generateModal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Modal body text goes here.</p>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary btn-copy-to-clipboard">Copy to
+                                Clipboard</button>
+                            <button type="button" class="btn btn-primary btn-download">Download file</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
     </div>
 
     <footer class="bg-light py-5 mt-5">
