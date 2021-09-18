@@ -116,7 +116,7 @@ export class App {
     download() {
         const code = this.generateCode();
 
-        var element = document.createElement('a');
+        const element = document.createElement('a');
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(code));
         element.setAttribute('download', 'code.html');
 
@@ -126,7 +126,6 @@ export class App {
         element.click();
 
         document.body.removeChild(element);
-
     }
 
     private handleGenerateCode() {
@@ -134,6 +133,6 @@ export class App {
     }
 
     private handleThemeChange() {
-        this.languageStyleLink.href = `/lib/styles/${this.themeInput.value}.css`;
+        this.languageStyleLink.href = `/codestyles/${this.themeInput.value}.css`;
     }
 }
