@@ -8,8 +8,12 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const PurgeCSSWebpackPlugin = require('purgecss-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = {
-    entry: './src/index.ts',
+const config = {
+    entry: {
+        index: './src/index.ts',
+        changelog: './src/changelog.ts',
+        contact: './src/contact.ts',
+    },
     mode: 'development',
     module: {
         rules: [
@@ -21,6 +25,9 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
+            {
+                test: /\.hbs$/, use: 'handlebars-loader'
             },
         ],
     },
@@ -36,7 +43,20 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: 'body',
-            template: path.resolve(__dirname, 'src', 'index.html'),
+            template: path.resolve(__dirname, 'src', 'templates', 'index.hbs'),
+            chunks: ['index']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'changelog.html',
+            inject: 'body',
+            template: path.resolve(__dirname, 'src', 'templates', 'changelog.hbs'),
+            chunks: ['changelog'],
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'contact.html',
+            inject: 'body',
+            template: path.resolve(__dirname, 'src', 'templates', 'contact.hbs'),
+            chunks: ['contact'],
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
@@ -46,18 +66,28 @@ module.exports = {
                 { from: 'static' }
             ]
         }),
-        new PurgeCSSWebpackPlugin({
-            paths: glob.sync(['src/**/*.html', 'src/**/*.ts'], {noDir: true}),
-            safelist: {
-                standard: ['modal-backdrop'],
-            },
-        }),
     ],
     optimization: {
-        minimize: true,
         minimizer: [
             new CssMinimizerPlugin(),
             new TerserPlugin(),
         ],
     },
+};
+
+module.exports = (env, argv) => {
+    if (argv.mode === 'development') {
+        config.devtool = 'source-map';
+    }
+    if (argv.mode === 'production') {
+        config.mode = 'production';
+        config.plugins.push(new PurgeCSSWebpackPlugin({
+            paths: glob.sync(['src/**/*.hbs', 'src/**/*.ts'], { noDir: true }),
+            safelist: {
+                standard: ['modal-backdrop'],
+            },
+        }));
+    }
+
+    return config;
 };
