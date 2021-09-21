@@ -1,7 +1,7 @@
 import { App } from './App';
 import { LanguageDef } from './LanguageDef';
 
-import './styles/main.scss';
+import '../styles/main.scss';
 
 const languages: LanguageDef[] = [
     { name: 'html', import: require('highlight.js/lib/languages/xml') },

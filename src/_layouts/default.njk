@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code to HTML</title>
+    <title>{{ title }}</title>
     <meta name="description" content="Code to HTML is an online tool for making programming code look good on HTML pages."/>
     <link id="language-style" rel="stylesheet" href="codestyles/default.css" type="text/css">
 
@@ -15,7 +15,10 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{% webpack 'index.css' %}">
+    <!--
     <script defer data-domain="codetohtml.com" src="https://plausible.io/js/plausible.js"></script>
+    -->
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -47,16 +50,16 @@
                 </button>
                 <div class="navbar-collapse collapse justify-content-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link {{#if indexPage}}active{{/if}}" href="/">Home</a>
-                        <a class="nav-link {{#if changeLogPage}}active{{/if}}" href="/changelog.html">Changelog</a>
-                        <a class="nav-link {{#if contactPage}}active{{/if}}" href="/contact.html">Contact</a>
+                        <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="/">Home</a>
+                        <a class="nav-link {% if page.url == '/changelog.html' %}active{% endif %}" href="/changelog.html">Changelog</a>
+                        <a class="nav-link {% if page.url == '/contact.html' %}active{% endif %}" href="/contact.html">Contact</a>
                     </div>
                 </div>
             </div>
         </nav>
 
         <main>
-{{> @partial-block}}
+            {{ content | safe }}
         </main>
     </div>
 
@@ -92,6 +95,7 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="{% webpack 'index.js' %}"></script>
 </body>
 
 </html>

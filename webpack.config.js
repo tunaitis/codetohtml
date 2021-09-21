@@ -7,12 +7,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const PurgeCSSWebpackPlugin = require('purgecss-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 const config = {
     entry: {
-        index: './src/index.ts',
-        changelog: './src/changelog.ts',
-        contact: './src/contact.ts',
+        index: path.resolve(__dirname, 'src/assets/scripts/index.ts'),
     },
     mode: 'development',
     module: {
@@ -36,10 +35,13 @@ const config = {
     },
     output: {
         filename: '[name].[contenthash].js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist', 'assets'),
+        publicPath: '/assets/'
     },
     plugins: [
+        new WebpackManifestPlugin(),
         new CleanWebpackPlugin(),
+        /*
         new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: 'body',
@@ -57,15 +59,16 @@ const config = {
             inject: 'body',
             template: path.resolve(__dirname, 'src', 'templates', 'contact.hbs'),
             chunks: ['contact'],
-        }),
+        }),*/
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
+        /*
         new CopyWebpackPlugin({
             patterns: [
                 { from: 'static' }
             ]
-        }),
+        }),*/
     ],
     optimization: {
         minimizer: [
@@ -82,7 +85,7 @@ module.exports = (env, argv) => {
     if (argv.mode === 'production') {
         config.mode = 'production';
         config.plugins.push(new PurgeCSSWebpackPlugin({
-            paths: glob.sync(['src/**/*.hbs', 'src/**/*.ts'], { noDir: true }),
+            paths: glob.sync(['src/**/*.njk', 'src/**/*.ts'], { noDir: true }),
             safelist: {
                 standard: ['modal-backdrop'],
             },
