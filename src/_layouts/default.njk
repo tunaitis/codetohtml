@@ -16,9 +16,9 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{% webpack 'index.css' %}">
-    <!--
-    <script defer data-domain="codetohtml.com" src="https://plausible.io/js/plausible.js"></script>
-    -->
+    {% if env.mode == 'production' %}
+        <script defer data-domain="codetohtml.com" src="https://plausible.io/js/plausible.js"></script>
+    {% endif %}
 </head>
 
 <body class="d-flex flex-column h-100">
