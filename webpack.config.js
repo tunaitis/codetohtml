@@ -34,7 +34,7 @@ const config = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: '[name].[contenthash].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist', 'assets'),
         publicPath: '/assets/'
     },
@@ -84,6 +84,7 @@ module.exports = (env, argv) => {
     }
     if (argv.mode === 'production') {
         config.mode = 'production';
+        config.output.filename = '[name].[contenthash].js';
         config.plugins.push(new PurgeCSSWebpackPlugin({
             paths: glob.sync(['src/**/*.njk', 'src/**/*.ts'], { noDir: true }),
             safelist: {

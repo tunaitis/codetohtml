@@ -14,6 +14,8 @@ module.exports = function (config) {
 
     config.addPassthroughCopy({ "src/static": "/" });
 
+    config.addWatchTarget("src/assets/scripts");
+
     return {
         dir: {
             includes: '_components',

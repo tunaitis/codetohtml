@@ -50,7 +50,7 @@ export class App {
         languages.forEach(lang => {
             hljs.registerLanguage(lang.name, lang.import);
 
-            this.languageInput.insertAdjacentHTML('beforeend', `<option value="${lang.name}">${lang.name}</option>`);
+            this.languageInput.insertAdjacentHTML('beforeend', `<option value="${lang.name}">${lang.label}</option>`);
         });
         this.languageInput.value = 'html';
     }
@@ -62,6 +62,7 @@ export class App {
     }
 
     updatePreview() {
+        console.log(this.languageInput.value);
         const output = hljs.highlight(this.codeInput.value, { language: this.languageInput.value });
         this.codePreview.firstElementChild.innerHTML = output.value;
         this.codePreview.firstElementChild.setAttribute('style', `max-height: ${this.codeInput.offsetHeight}px;`);
