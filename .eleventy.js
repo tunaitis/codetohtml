@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const manifestPath = path.resolve(__dirname, 'dist/assets/manifest.json');
+const format = require('date-fns/format');
 
 module.exports = function (config) {
 
@@ -13,6 +14,10 @@ module.exports = function (config) {
         }));
 
     config.addPassthroughCopy({ "src/static": "/" });
+
+    config.addFilter('date', function (date, dateFormat) {
+        return format(date, dateFormat)
+    });
 
     config.addWatchTarget("src/assets/scripts");
 
