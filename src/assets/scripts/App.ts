@@ -11,6 +11,9 @@ export class App {
     codeInput: HTMLTextAreaElement;
     codePreview: HTMLElement;
 
+    fileUpload: HTMLInputElement;
+    fileUploadButton: HTMLLinkElement;
+
     languageInput: HTMLSelectElement;
     themeInput: HTMLSelectElement;
 
@@ -32,6 +35,11 @@ export class App {
         this.codeInput.addEventListener('input', () => this.updatePreview());
 
         this.codePreview = container.querySelector('.code-preview');
+
+        this.fileUpload = container.querySelector('input[type=file]');
+        this.fileUploadButton = container.querySelector('.file-upload');
+        this.fileUploadButton.addEventListener('click', () => this.fileUpload.click());
+        this.fileUpload.addEventListener('change', this.handleFileChange.bind(this));
 
         this.languageInput = container.querySelector('.language-input');
         this.languageInput.addEventListener('change', () => this.updatePreview());
@@ -62,7 +70,6 @@ export class App {
     }
 
     updatePreview() {
-        console.log(this.languageInput.value);
         const output = hljs.highlight(this.codeInput.value, { language: this.languageInput.value });
         this.codePreview.firstElementChild.innerHTML = output.value;
         this.codePreview.firstElementChild.setAttribute('style', `max-height: ${this.codeInput.offsetHeight}px;`);
@@ -127,6 +134,21 @@ export class App {
         element.click();
 
         document.body.removeChild(element);
+    }
+
+    private handleFileChange() {
+        if (this.fileUpload.files.length === 0) {
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.readAsText(this.fileUpload.files[0]);
+        reader.addEventListener('load', (event: Event) => {
+            this.codeInput.value = reader.result.toString();
+            this.updatePreview();
+        });
+
+        this.fileUpload.value = '';
     }
 
     private handleGenerateCode() {

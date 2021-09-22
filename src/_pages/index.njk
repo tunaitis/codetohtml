@@ -8,15 +8,23 @@ permalink: /
     <div class="col-6">
 
         <div class="mb-0">
-            <label class="form-label">Language:</label>
+            <div class="d-flex justify-content-between">
+                <label class="form-label fw-bold">Language</label>
+                <a href="/contact.html" class="small link-secondary">Can't find your language?</a>
+            </div>
             <select class="form-select language-input">
             </select>
             <div class="d-flex justify-content-end">
-                <a href="/contact.html" class="small mt-1">Can't find your language?</a>
+
             </div>
         </div>
 
-        <label class="form-label mt-4" for="code">Code:</label>
+        <div class="d-flex justify-content-between mt-4">
+            <label class="form-label fw-bold" for="code">Code</label>
+            <a href="javascript:;" class="file-upload small link-secondary">Upload file</a>
+            <input type="file" style="display: none;" />
+        </div>
+
         <textarea class="form-control code-input" rows="14" id="code" style="resize: none;">
 <!DOCTYPE html>
 <html>
@@ -34,11 +42,11 @@ permalink: /
     </div>
     <div class="col-6 d-flex flex-column">
         <div class="mb-4">
-            <label class="form-label">Theme:</label>
+            <label class="form-label fw-bold">Theme</label>
             <select class="form-select theme-input">
             </select>
         </div>
-        <label class="form-label mt-4">Preview:</label>
+        <label class="form-label fw-bold">Preview</label>
 
         <div class="code-preview d-flex flex-column flex-grow-1">
             <pre class="hljs p-3 mb-0 flex-grow-1"> </pre>
