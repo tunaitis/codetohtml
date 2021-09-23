@@ -1,0 +1,34 @@
+[
+    {
+        "date": "2021-09-23",
+        "changes": [
+            "Improve the experience on small devices"
+        ]
+    },
+    {
+        "date": "2021-09-22",
+        "changes": [
+            "Added code upload button",
+            "Added more color schemes"
+        ]
+    },
+    {
+        "date": "2021-09-21",
+        "changes": [
+            "Added support for more programming languages"
+        ]
+    },
+    {
+        "date": "2021-09-19",
+        "changes": [
+            "Added the changelog",
+            "Added the contact page"
+        ]
+    },
+    {
+        "date": "2021-09-18",
+        "changes": [
+            "Launched initial version"
+        ]
+    }
+]
