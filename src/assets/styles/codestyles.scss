@@ -1,0 +1,37 @@
+@use "sass:meta";
+
+.theme-3024 {
+  @include meta.load-css("../../static/codestyles/3024.css");
+}
+
+.theme-apathy {
+  @include meta.load-css("../../static/codestyles/apathy.css");
+}
+
+.theme-apprentice {
+  @include meta.load-css("../../static/codestyles/apprentice.css");
+}
+
+.theme-ashes {
+  @include meta.load-css("../../static/codestyles/ashes.css");
+}
+
+.theme-atelier-cave-light {
+  @include meta.load-css("../../static/codestyles/atelier-cave-light.css");
+}
+
+.theme-atelier-cave {
+  @include meta.load-css("../../static/codestyles/atelier-cave.css");
+}
+
+.theme-atelier-dune-light {
+  @include meta.load-css("../../static/codestyles/atelier-dune-light.css");
+}
+
+.theme-atelier-dune {
+  @include meta.load-css("../../static/codestyles/atelier-dune.css");
+}
+
+.theme-atelier- {
+  @include meta.load-css("../../static/codestyles/atelier-dune.css");
+}

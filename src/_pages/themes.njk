@@ -1,0 +1,26 @@
+---
+title: Themes - Code to HTML
+layout: default.njk
+permalink: /themes.html
+---
+<link rel="stylesheet" href="{% webpack 'themes.css' %}">
+
+<h1 class="mb-3">Themes</h1>
+
+<p class="mb-4">This is a preview of all available code styles. <br />Click on a code box to apply selected code style and go back to the main page.</p>
+
+<div class="row">
+    {% for theme in themes %}
+        <div class="col theme theme-{{ theme }} mb-3" data-theme-name="{{ theme }}">
+            <h3 class="mb-2">{{ theme }}</h3>
+<pre class="hljs p-2" style="display: inline-block;"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Snippet</span> : <span class="hljs-title">IThemeable</span> {
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"></span>)</span> {
+        <span class="hljs-keyword">if</span>(<span class="hljs-string">"hello"</span>.Length &lt; (<span class="hljs-number">43</span> ^ <span class="hljs-number">2</span>))
+            <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">"http://there.com"</span>);
+    }
+} <span class="hljs-comment">// "hamstu"</span></pre>
+        </div>
+    {% endfor %}
+</div>
+
+<script type="text/javascript" src="{% webpack 'themes.js' %}"></script>

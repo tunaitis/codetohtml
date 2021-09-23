@@ -3,6 +3,8 @@ import { LanguageDef } from './LanguageDef';
 
 import '../styles/main.scss';
 
+import themes from '../../_data/themes.json';
+
 const languages: LanguageDef[] = [
     { label: 'Assembly', name: 'x86asm', import: require('highlight.js/lib/languages/x86asm') },
     { label: 'Ada', name: 'ada', import: require('highlight.js/lib/languages/ada') },
@@ -41,17 +43,11 @@ const languages: LanguageDef[] = [
     { label: 'TypeScript', name: 'typescript', import: require('highlight.js/lib/languages/typescript') },
     { label: 'Visual Basic', name: 'vbnet', import: require('highlight.js/lib/languages/vbnet') },
 ];
-const themes = ['default', 'a11y-dark', 'a11y-light', 'agate', 'an-old-hope', 'androidstudio', 'arduino-light', 
-'arta', 'ascetic', 'atom-one-dark', 'atom-one-dark-reasonable', 'atom-one-light', 'codepen-embed', 
-'color-brewer', 'dark', 'devibeans', 'docco', 'far', 'foundation', 'github', 'github-dark', 'github-dark-dimmed',
-'gml', 'googlecode', 'grayscale', 'hybrid', 'idea', 'ir-black', 'isbl-editor-dark',
-'isbl-editor-light', 'kimbie-dark', 'kimbie-light', 'lightfair', 'lioshi', 'magula', 'mono-blue', 'monokai', 
-'monokai-sublime', 'night-owl', 'nnfx-dark', 'nnfx-light', 'nord', 'obsidian', 'paraiso-dark', 'paraiso-light',
-'pojoaque', 'purebasic', 'qtcreator-dark', 'qtcreator-light', 'rainbow', 'routeros', 'school-book', 'shades-of-purple',
-'srcery', 'stackoverflow-dark', 'stackoverflow-light', 'sunburst', 'tomorrow-night-blue', 'tomorrow-night-bright',
-'vs', 'vs2015', 'xcode', 'xt256'];
 
-const app = new App(document.querySelector('main'));
-app.configureLanguages(languages);
-app.configureThemes(themes);
-app.updatePreview();
+const root = document.querySelector<HTMLElement>('.app');
+if (root !== null) {
+    const app = new App(root);
+    app.configureLanguages(languages);
+    app.configureThemes(themes);
+    app.updatePreview();
+}

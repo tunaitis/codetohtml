@@ -12,6 +12,7 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const config = {
     entry: {
         index: path.resolve(__dirname, 'src/assets/scripts/index.ts'),
+        themes: path.resolve(__dirname, 'src/assets/scripts/themes.ts'),
     },
     mode: 'development',
     module: {

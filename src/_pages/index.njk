@@ -4,29 +4,30 @@ layout: default.njk
 permalink: /
 ---
 
-<div class="row">
-    <div class="col-12 col-md-6 col-lg-6">
+<div class="app">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-6">
 
-        <div class="mb-4">
-            <div class="d-flex justify-content-between">
-                <label class="form-label fw-bold">Language</label>
-                <a href="/contact.html" class="small link-secondary">Can't find your language?</a>
-            </div>
-            <select class="form-select language-input">
-            </select>
-            <div class="d-flex justify-content-end">
+            <div class="mb-4">
+                <div class="d-flex justify-content-between">
+                    <label class="form-label fw-bold">Language</label>
+                    <a href="/contact.html" class="small link-secondary">Can't find your language?</a>
+                </div>
+                <select class="form-select language-input">
+                </select>
+                <div class="d-flex justify-content-end">
 
-            </div>
-        </div>
-
-        <div class="mb-4">
-            <div class="d-flex justify-content-between">
-                <label class="form-label fw-bold" for="code">Code</label>
-                <a href="javascript:;" class="file-upload small link-secondary">Upload file</a>
-                <input type="file" style="display: none;" />
+                </div>
             </div>
 
-            <textarea class="form-control code-input" rows="14" id="code" style="resize: none;">
+            <div class="mb-4">
+                <div class="d-flex justify-content-between">
+                    <label class="form-label fw-bold" for="code">Code</label>
+                    <a href="javascript:;" class="file-upload small link-secondary">Upload file</a>
+                    <input type="file" style="display: none;" />
+                </div>
+
+                <textarea class="form-control code-input" rows="14" id="code" style="resize: none;">
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,48 +41,54 @@ permalink: /
 
 </html>
             </textarea>
+            </div>
         </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-6 d-flex flex-column">
-        <div class="mb-4">
-            <label class="form-label fw-bold">Theme</label>
-            <select class="form-select theme-input">
-            </select>
-        </div>
-        <label class="form-label fw-bold">Preview</label>
+        <div class="col-12 col-md-6 col-lg-6 d-flex flex-column">
+            <div class="mb-4">
+                <div class="d-flex justify-content-between">
+                    <label class="form-label fw-bold">Theme</label>
+                    <a href="/themes.html" class="small link-secondary">Preview all themes</a>
+                </div>
+                <select class="form-select theme-input">
+                </select>
+            </div>
+            <label class="form-label fw-bold">Preview</label>
 
-        <div class="code-preview d-flex flex-column flex-grow-1">
-            <pre class="hljs p-3 mb-0 flex-grow-1"> </pre>
-        </div>
-    </div>
-</div>
-<div class="d-flex align-items-center justify-content-center mt-4">
-    <button class="btn btn-secondary btn-lg" id="generate">Generate HTML</button>
-</div>
-<div class="modal generate-modal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Code to HTML</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="mb-0">Your HTML code is ready. Copy the result to the clipboard or download it
-                    as
-                    file.</p>
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button type="button" class="btn btn-primary btn-copy-to-clipboard">Copy to
-                    clipboard</button>
-                <button type="button" class="btn btn-primary btn-download">Download file</button>
+            <div class="code-preview d-flex flex-column flex-grow-1">
+                <pre class="hljs p-3 mb-0 flex-grow-1"> </pre>
             </div>
         </div>
     </div>
-</div><!-- .modal -->
-<div class="position-fixed top-0 end-0 p-3">
-    <div class="toast copied-to-clipboard-toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-body">
-            The generated code is successful copied to clipboard.
+    <div class="d-flex align-items-center justify-content-center mt-4">
+        <button class="btn btn-secondary btn-lg" id="generate">Generate HTML</button>
+    </div>
+    <div class="modal generate-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Code to HTML</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-0">Your HTML code is ready. Copy the result to the clipboard or download it
+                        as
+                        file.</p>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary btn-copy-to-clipboard">Copy to
+                        clipboard</button>
+                    <button type="button" class="btn btn-primary btn-download">Download file</button>
+                </div>
+            </div>
         </div>
-    </div><!-- .toast -->
+    </div><!-- .modal -->
+    <div class="position-fixed top-0 end-0 p-3">
+        <div class="toast copied-to-clipboard-toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                The generated code is successful copied to clipboard.
+            </div>
+        </div><!-- .toast -->
+    </div>
 </div>
+
+<script type="text/javascript" src="{% webpack 'index.js' %}"></script>

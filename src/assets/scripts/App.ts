@@ -2,6 +2,13 @@ import { default as hljs } from 'highlight.js/lib/core';
 import { GenerateModal } from "./GenerateModal";
 import { LanguageDef } from './LanguageDef';
 import { Toast } from 'bootstrap';
+import throttle from './utils/throttle';
+
+enum LocalStorageKeys {
+    Theme = 'theme',
+    Language = 'language',
+    Code = 'code',
+}
 
 export class App {
     container: HTMLElement;
@@ -32,7 +39,7 @@ export class App {
         this.generateCodeButton.addEventListener('click', this.handleGenerateCode.bind(this));
 
         this.codeInput = container.querySelector('.code-input');
-        this.codeInput.addEventListener('input', () => this.updatePreview());
+        this.codeInput.addEventListener('input', this.handleCodeChange.bind(this));
 
         this.codePreview = container.querySelector('.code-preview');
 
@@ -42,7 +49,7 @@ export class App {
         this.fileUpload.addEventListener('change', this.handleFileChange.bind(this));
 
         this.languageInput = container.querySelector('.language-input');
-        this.languageInput.addEventListener('change', () => this.updatePreview());
+        this.languageInput.addEventListener('change', this.handleLanguageChange.bind(this));
 
         this.themeInput = container.querySelector('.theme-input');
         this.themeInput.addEventListener('change', this.handleThemeChange.bind(this));
@@ -60,13 +67,28 @@ export class App {
 
             this.languageInput.insertAdjacentHTML('beforeend', `<option value="${lang.name}">${lang.label}</option>`);
         });
-        this.languageInput.value = 'html';
+        const language = localStorage.getItem(LocalStorageKeys.Language) || 'html';
+        this.languageInput.value = language;
+        if (language !== 'html') {
+            this.handleLanguageChange();
+        }
+
+        const code = localStorage.getItem(LocalStorageKeys.Code);
+        if (code !== null) {
+            this.codeInput.value = code;
+            this.handleCodeChange();
+        }
     }
 
     configureThemes(themes: string[]) {
         themes.forEach(theme => {
             this.themeInput.insertAdjacentHTML('beforeend', `<option value="${theme}">${theme}</option>`);
         });
+        const theme = localStorage.getItem(LocalStorageKeys.Theme) || 'default';
+        this.themeInput.value = theme;
+        if (theme !== 'default') {
+            this.handleThemeChange();
+        }
     }
 
     updatePreview() {
@@ -155,7 +177,34 @@ export class App {
         this.generateModal.show();
     }
 
+    private handleLanguageChange() {
+        this.updatePreview();
+        this.persistInputData(LocalStorageKeys.Language);
+    }
+
     private handleThemeChange() {
         this.languageStyleLink.href = `/codestyles/${this.themeInput.value}.css`;
+        this.persistInputData(LocalStorageKeys.Theme);
+    }
+
+    private handleCodeChange() {
+        this.updatePreview();
+        this.persistInputData(LocalStorageKeys.Code);
+    }
+
+    private persistInputData(type: LocalStorageKeys) {
+        const throttledUpdate = throttle(() => {
+            if (type === LocalStorageKeys.Theme) {
+                localStorage.setItem('theme', this.themeInput.value);
+            }
+            if (type === LocalStorageKeys.Language) {
+                localStorage.setItem('language', this.languageInput.value);
+            }
+            if (type === LocalStorageKeys.Code) {
+                localStorage.setItem('code', this.codeInput.value);
+            }
+        }, 500);
+
+        throttledUpdate();
     }
 }
