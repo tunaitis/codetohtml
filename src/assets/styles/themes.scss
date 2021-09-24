@@ -1,6 +1,8 @@
 // auto-generated file, do not edit
 @use "sass:meta";
 
+/* purgecss start ignore */
+
 .theme-3024 {
 	@include meta.load-css("../../static/codestyles/3024.css");
 }
@@ -952,4 +954,6 @@
 .theme-zenburn {
 	@include meta.load-css("../../static/codestyles/zenburn.css");
 }
+
+/* purgecss end ignore */
 
