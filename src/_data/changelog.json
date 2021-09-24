@@ -1,5 +1,11 @@
 [
     {
+        "date": "2021-09-24",
+        "changes": [
+            "Added theme preview page"
+        ]
+    },
+    {
         "date": "2021-09-23",
         "changes": [
             "Improve the experience on small devices"
