@@ -168,6 +168,7 @@ export class App {
         reader.addEventListener('load', (event: Event) => {
             this.codeInput.value = reader.result.toString();
             this.updatePreview();
+            this.persistInputData(LocalStorageKeys.Code);
         });
 
         this.fileUpload.value = '';
