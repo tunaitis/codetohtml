@@ -59,7 +59,7 @@ func writeThemeStylesheet(themes []theme) {
 	file.WriteString("// auto-generated file, do not edit\n")
 	file.WriteString("@use \"sass:meta\";\n\n")
 
-	file.WriteString("/* purgecss start ignore */\n\n")
+	file.WriteString("/*! purgecss start ignore */\n\n")
 
 	for _, theme := range themes {
 		file.WriteString(fmt.Sprintf(".theme-%s {\n", theme.name))
@@ -67,7 +67,7 @@ func writeThemeStylesheet(themes []theme) {
 		file.WriteString("}\n\n")
 	}
 
-	file.WriteString("/* purgecss end ignore */\n\n")
+	file.WriteString("/*! purgecss end ignore */\n\n")
 }
 
 func main() {
