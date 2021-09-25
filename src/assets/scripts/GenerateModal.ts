@@ -1,5 +1,6 @@
 import { Modal } from 'bootstrap';
 import { App } from './App';
+import { logGenerateCode } from './utils/analytics';
 
 export class GenerateModal {
     container: HTMLElement;
@@ -28,11 +29,13 @@ export class GenerateModal {
     handleCopyCodeToClipboard() {
         this.app.copyToClipboard();
         this.modal.hide();
+        logGenerateCode(this.app.languageInput.value, this.app.themeInput.value, 'clipboard');
     }
 
     handleDownloadCode() {
         this.app.download();
         this.modal.hide();
+        logGenerateCode(this.app.languageInput.value, this.app.themeInput.value, 'file');
     }
 
     show() {

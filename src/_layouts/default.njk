@@ -17,17 +17,21 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{% webpack 'index.css' %}">
     {% if env.mode == 'production' %}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTN115W2YH"></script>
-        <script>
+    {% endif %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTN115W2YH"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-HTN115W2YH');
-        </script>
-    {% endif %}
+        gtag('config', 'G-HTN115W2YH', {'debug_mode': true});
+    </script>
 </head>
 
 <body class="d-flex flex-column h-100">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PK48VZ8"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div class="container mt-4 mb-5 flex-shrink-0">
         <nav class="row navbar navbar-expand-lg navbar-light mb-5">
             <div class="container-fluid">

@@ -9,5 +9,8 @@
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
-    }
+        "types": [
+            "gtag.js",
+        ]
+    },
 }

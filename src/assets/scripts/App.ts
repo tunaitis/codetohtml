@@ -3,6 +3,7 @@ import { GenerateModal } from "./GenerateModal";
 import { LanguageDef } from './LanguageDef';
 import { Toast } from 'bootstrap';
 import throttle from './utils/throttle';
+import { logFileUpload } from './utils/analytics';
 
 enum LocalStorageKeys {
     Theme = 'theme',
@@ -169,6 +170,7 @@ export class App {
             this.codeInput.value = reader.result.toString();
             this.updatePreview();
             this.persistInputData(LocalStorageKeys.Code);
+            logFileUpload(this.codeInput.value.length);
         });
 
         this.fileUpload.value = '';
