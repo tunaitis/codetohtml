@@ -13,5 +13,5 @@ WORKDIR /home/static
 COPY ./dist/ .
 
 # Run thttpd
-CMD ["thttpd", "-D", "-h", "0.0.0.0", "-p", "3000", "-d", "/home/static", "-u", "static", "-l", "-", "-M", "60"]
+CMD ["thttpd", "-D", "-h", "0.0.0.0", "-p", "80", "-d", "/home/static", "-u", "static", "-l", "-", "-M", "60"]
 
