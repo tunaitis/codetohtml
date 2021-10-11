@@ -15,7 +15,7 @@ type theme struct {
 
 func getThemeList() []theme {
 	var themes []theme
-	root := "../src/static/codestyles"
+	root := "src/static/codestyles"
 	err := filepath.Walk(root, func(path string, info fs.FileInfo, err error) error {
 		if info.IsDir() {
 			return nil
@@ -32,7 +32,7 @@ func getThemeList() []theme {
 }
 
 func writeThemeJson(themes []theme) {
-	file, err := os.Create("../src/_data/themes.json")
+	file, err := os.Create("src/_data/themes.json")
 	if err != nil {
 		panic(err)
 	}
@@ -50,7 +50,7 @@ func writeThemeJson(themes []theme) {
 }
 
 func writeThemeStylesheet(themes []theme) {
-	file, err := os.Create("../src/assets/styles/themes.scss")
+	file, err := os.Create("src/assets/styles/themes.scss")
 	if err != nil {
 		panic(err)
 	}
