@@ -4,8 +4,6 @@ const manifestPath = path.resolve(__dirname, 'dist/assets/manifest.json');
 const format = require('date-fns/format');
 
 module.exports = function (config) {
-
-
     config.addNunjucksAsyncShortcode('webpack', async (name) =>
         new Promise((resolve) => {
             fs.readFile(manifestPath, { encoding: 'utf8' }, (err, data) => {
@@ -28,7 +26,6 @@ module.exports = function (config) {
             layouts: '_layouts',
             output: 'dist',
         },
-        // Allows using markup and EJS features in markdown
         markdownTemplateEngine: 'njk',
         templateFormats: [
             'njk',
