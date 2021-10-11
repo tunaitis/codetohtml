@@ -17,7 +17,6 @@
     "@types/bootstrap": "^5.1.4",
     "@types/gtag.js": "^0.0.7",
     "@types/prettier": "^2.3.2",
-    "@types/prismjs": "^1.16.6",
     "bootstrap": "^5.1.1",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^9.0.1",
@@ -45,7 +44,6 @@
     "webpack-manifest-plugin": "^4.0.2"
   },
   "dependencies": {
-    "highlight.js": "^11.2.0",
-    "prismjs": "^1.24.1"
+    "highlight.js": "^11.2.0"
   }
 }
